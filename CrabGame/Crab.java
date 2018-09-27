@@ -17,9 +17,9 @@ public class Crab extends Actor
      */
     public Crab()
     {
-        // image1을 crab.png로 설정
-        // image2를 crab2.png로 설정
-        // 초기 wormEaten은 0
+        image1 = new GreenfootImage("crab.png");// image1을 crab.png로 설정
+        image2 = new GreenfootImage("crab2.png");// image2를 crab2.png로 설정
+        wormsEaten = 0;// 초기 wormEaten은 0
     }
     
     /**
@@ -73,6 +73,12 @@ public class Crab extends Actor
     {
         // <- 방향키를 입력받으면 -4 만큼 회전
         // -> 방향키를 입력받으면 4 만큼 회전
+        if(Greenfoot.isKeyDown("left")){
+            turn(-4);
+        }
+         if(Greenfoot.isKeyDown("right")){
+             turn(4);
+        }
     }
     
     /**
