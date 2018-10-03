@@ -88,13 +88,15 @@ public class Crab extends Actor
      */
     public void lookForWorm()
     {
-        // Worm에 닿은 경우
-        // Worm을 제거
-        // slurp.wav 음악 재생
-        // wormsEaten 증가
-        // 먹은 Worm의 수가 8인 경우
-        // fanfare.wav 음악 재생
-        // Congratulation! 문구 표시
-        // Greenfoot.stop();
+        if(isTouching(Worm.class)){// Worm에 닿은 경우
+            removeTouching(Worm.class);// Worm을 제거
+            Greenfoot.playSound("slurp.wav");// slurp.wav 음악 재생
+            wormsEaten++;// wormsEaten 증가
+            if(wormsEaten == 8){// 먹은 Worm의 수가 8인 경우
+                Greenfoot.playSound("fanfare.wav");// fanfare.wav 음악 재생
+                getWorld().showText("Congratulation!", 300, 280);// Congratulation! 문구 표시
+                Greenfoot.stop();
+            }
+        }
     }  
 }
